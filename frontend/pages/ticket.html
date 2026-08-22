@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Ticket</title>
+  <link rel="stylesheet" href="../styles/ticket.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="ticket-header">
+      <span class="close-btn" id="closeBtn" title="Close">&times;</span>
+      <h2>Ticket</h2>
+    </div>
+
+    <div class="ticket">
+      <div class="barcode">
+        <img id="barcodeImg" src="https://api.qrserver.com/v1/create-qr-code/?data=CoolieTicket&size=280x70" alt="barcode" />
+        <p>Scan this barcode at the entrance to the theatre</p>
+      </div>
+
+      <hr class="dashed" />
+
+      <div class="ticket-info">
+        <h3 id="movieTitle"></h3>
+        <p id="runtime"></p>
+        <p id="cinemaName"></p>
+        <p id="seatNumber"></p>
+        <p id="showtime"></p>
+      </div>
+
+      <hr />
+      <p class="footer">Enjoy the best movie watching experience.</p>
+    </div>
+  </div>
+
+  <script src="../scripts/ticket.js"></script>
+</body>
+</html>

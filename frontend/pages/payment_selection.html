@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Payment Method - CINE RUSH</title>
+    <link rel="stylesheet" href="../styles/payment_selection.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <button class="back-btn" onclick="goBack()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="header-title">Select Payment Method</h1>
+        </header>
+
+        <!-- Recommended Section -->
+        <div class="payment-section">
+            <h3 class="section-title">Recommended</h3>
+            <div class="payment-option recommended" onclick="selectPaymentMethod('Google Pay UPI')">
+                <div class="payment-icon gpay-icon"></div>
+                <span class="payment-name">Google Pay UPI</span>
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Other UPI Options -->
+        <div class="payment-section">
+            <h3 class="section-title">Pay by any UPI app</h3>
+            <div class="payment-option" onclick="selectPaymentMethod('Airtel UPI')">
+                <div class="payment-icon airtel-icon"></div>
+                <span class="payment-name">Airtel UPI</span>
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="payment-option" onclick="selectPaymentMethod('Phonepe UPI')">
+                <div class="payment-icon phonepe-icon"></div>
+                <span class="payment-name">Phonepe UPI</span>
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="payment-option" onclick="selectPaymentMethod('Paytm UPI')">
+                <div class="payment-icon paytm-icon"></div>
+                <span class="payment-name">Paytm UPI</span>
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="payment-option" onclick="selectPaymentMethod('Add new UPI ID')">
+                <div class="payment-icon add-upi-icon"></div>
+                <span class="payment-name">Add new UPI ID</span>
+                <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/payment_selection.js"></script>
+</body>
+</html>

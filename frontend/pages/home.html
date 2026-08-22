@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CINE RUSH - Homepage</title>
+    <link rel="stylesheet" href="../styles/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <div class="profile-icon">
+          <img src="../assets/profile.jpg" alt="profile" />
+        </div>
+        <div class="location">
+          <div class="location-text">
+            <span class="location-label">Your Location</span>
+            <span class="location-name">YANAM</span>
+          </div>
+        </div>
+        <button class="notification-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M13.73 21a2 2 0 0 1-3.46 0"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </header>
+
+      <!-- Promotional Banner -->
+      <div class="promotional-banner">
+        <!-- <div class="banner-container"> -->
+        <div class="banner-slide active">
+          <img
+            src="../assets/BANNER.png"
+            alt="Promotion 1"
+          />
+          <div class="banner-overlay">
+            <h3>Welcome to CineRush!</h3>
+            <p>Book Tickets Anytime, Anywhere</p>
+          </div>
+        </div>
+        <div class="banner-slide">
+          <img
+            src="https://www.filmofilia.com/wp-content/uploads/2025/09/Demon-Slayer-photo-01.webp"
+            alt="Promotion 2"
+          />
+          <div class="banner-overlay">
+            <h3>Demon Slayer: Infinity Castle Arc</h3>
+            <p>Experience in Theatre</p>
+            <button class="banner-btn">Book Now</button>
+          </div>
+        </div>
+        <div class="banner-slide">
+          <img
+            src="https://static1.srcdn.com/wordpress/wp-content/uploads/2024/12/a-coolie-promo-image-featuring-rajinikanth-with-a-clenched-fist.jpg"
+            alt="Promotion 3"
+          />
+          <div class="banner-overlay">
+            <h3>Coolie</h3>
+            <p>Experience in Theatre</p>
+            <button class="banner-btn">Book Now</button>
+          </div>
+        </div>
+        <!-- </div> -->
+
+        <!-- Navigation Dots -->
+        <div class="banner-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="banner-arrow prev" aria-label="Previous slide">‹</button>
+        <button class="banner-arrow next" aria-label="Next slide">›</button>
+      </div>
+
+      <!-- Now Playing Section -->
+      <section title="now_playing" class="movies-section">
+        <div class="section-header">
+          <h2>Now Playing</h2>
+          <button class="view-all-btn" data-section="now_playing">
+            View All
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 18l6-6-6-6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="movies-grid">
+          <div class="movie-card" data-movie="Kingdom">
+            <div class="movie-poster" aria-label="Poster for Kingdom">
+              <img
+                src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/kingdom-et00433664-1753697049.jpg"
+                alt="Kingdom"
+                width="100%"
+                height="100%"
+                class="sc-echj48-5 jNMNoU"
+                style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+              />
+            </div>
+            <h3 class="movie-title">Kingdom</h3>
+            <button class="book-btn">
+              Book Now
+            </button>
+          </div>
+          <div class="movie-card" data-movie="War 2">
+            <div class="movie-poster" aria-label="Poster for War 2">
+              <img
+                src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/war-2-et00356501-1755672553.jpg"
+                alt="War 2"
+                width="100%"
+                height="100%"
+                class="sc-echj48-5 jNMNoU"
+                style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+              />
+            </div>
+            <h3 class="movie-title">War 2</h3>
+            <button class="book-btn">
+              Book Now
+            </button>
+          </div>
+          <div class="movie-card" data-movie="Coolie">
+            <div class="movie-poster" aria-label="Poster for Coolie">
+              <img
+                src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/coolie-et00395817-1755153511.jpg"
+                alt="Coolie"
+                width="100%"
+                height="100%"
+                class="sc-echj48-5 jNMNoU"
+                style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+              />
+            </div>
+            <h3 class="movie-title">Coolie</h3>
+            <button class="book-btn">
+              Book Now
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Coming Soon Section -->
+      <section title="coming_soon" class="movies-section">
+        <div class="section-header">
+          <h2>Coming Soon</h2>
+          <button class="view-all-btn" data-section="coming_soon">
+            View All
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 18l6-6-6-6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="movies-grid">
+          <div class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/toxic-a-fairy-tale-for-grown-ups-et00378770-1742796590.jpg"
+                alt="Toxic: A Fairy Tale for Grown-ups"
+                width="100%"
+                height="100%"
+                class="sc-echj48-5 jNMNoU"
+                style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+              />
+            </div>
+            <h3 class="movie-title">Toxic</h3>
+            <button class="book-btn disabled">Coming Soon</button>
+          </div>
+          <div class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/they-call-him-og-et00369074-1758290791.jpg"
+                alt="They Call Him OG"
+                width="100%"
+                height="100%"
+                class="sc-echj48-5 jNMNoU"
+                style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+              />
+            </div>
+            <h3 class="movie-title">OG</h3>
+            <button class="book-btn disabled">Coming Soon</button>
+          </div>
+          <div class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-raja-saab-et00383697-1750072273.jpg"
+                alt="The Raja Saab"
+                width="100%"
+                height="100%"
+                class="sc-echj48-5 jNMNoU"
+                style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+              />
+            </div>
+            <h3 class="movie-title">Rajasaab</h3>
+            <button class="book-btn disabled">Coming Soon</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation -->
+      <div class="bottom-nav">
+        <button class="home-tab">
+          <div class="home-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9,22 9,12 15,12 15,22"></polyline>
+            </svg>
+          </div>
+          <span>Home</span>
+        </button>
+        <button>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2Z"
+            ></path>
+            <path d="M13 5v2"></path>
+            <path d="M13 17v2"></path>
+            <path d="M13 11v2"></path>
+          </svg>
+        </button>
+        <button>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="../scripts/home.js"></script>
+  </body>
+</html>

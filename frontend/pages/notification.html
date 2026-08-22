@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification - CINE RUSH</title>
+    <link rel="stylesheet" href="../styles/notification.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <button class="back-btn" onclick="goBack()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="title">Notification</h1>
+        </header>
+
+        <!-- Notifications Content -->
+        <main class="content">
+            <!-- Today Section -->
+            <section class="notification-section">
+                <h2 class="section-title">Today</h2>
+                
+                <div class="notification-item" onclick="openNotification('coolie-today')">
+                    <div class="notification-icon"></div>
+                    <div class="notification-content">
+                        <p class="notification-text">COOLIE is now playing in your favorite cinema!</p>
+                    </div>
+                    <div class="notification-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="notification-item" onclick="openNotification('war2-today')">
+                    <div class="notification-icon"></div>
+                    <div class="notification-content">
+                        <p class="notification-text">WAR 2 is now playing in your favorite cinema!</p>
+                    </div>
+                    <div class="notification-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Yesterday Section -->
+            <section class="notification-section">
+                <h2 class="section-title">Yesterday</h2>
+                
+                <div class="notification-item" onclick="openNotification('war2-yesterday')">
+                    <div class="notification-icon"></div>
+                    <div class="notification-content">
+                        <p class="notification-text">WAR 2 is now playing in your favorite cinema!</p>
+                    </div>
+                    <div class="notification-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../scripts/notification.js"></script>
+</body>
+</html>

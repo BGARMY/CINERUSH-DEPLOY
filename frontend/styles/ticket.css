@@ -1,0 +1,148 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: #ff4444; /* Red background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  max-width: 600px;   /* Bigger ticket size */
+  padding: 0 20px;
+}
+
+/* Header */
+.ticket-header {
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.ticket-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.close-btn {
+  position: absolute;
+  left: 20px;
+  top: -4px;
+  font-size: 34px;
+  cursor: pointer;
+  background-color: #ff4444;
+  color: white;
+  border: 0px;
+}
+
+/* Ticket Card */
+.ticket {
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  padding: 36px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+/* Side notches */
+.ticket::before,
+.ticket::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #ff4444;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ticket::before {
+  left: -30px;
+}
+
+.ticket::after {
+  right: -30px;
+}
+
+/* Barcode */
+.barcode {
+  text-align: center;
+}
+
+.barcode img {
+  width: 420px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.barcode p {
+  font-size: 16px;
+  color: gray;
+  margin-top: 10px;
+}
+
+.dashed {
+  border: none;
+  border-top: 2px dashed #bbb;
+  margin: 25px 0;
+}
+
+/* Ticket Info */
+.ticket-info {
+  text-align: center;
+}
+
+.ticket-info h3 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.ticket-info .duration {
+  font-size: 18px;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.ticket-info .theatre {
+  font-weight: bold;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.ticket-info .datetime {
+  color: gray;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.ticket-info .seat span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff4444;
+  display: block;
+  margin: 15px 0;
+}
+
+.ticket-info .person {
+  font-size: 18px;
+  color: gray;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 16px;
+  color: gray;
+}

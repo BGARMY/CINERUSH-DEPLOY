@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINE RUSH - Sign In</title>
+    <link rel="stylesheet" href="../styles/signin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1 class="title">Sign In</h1>
+            <p class="subtitle">Sign in to unlock a world of movies and seamless ticket booking</p>
+            
+            <form id="signinForm" class="form">
+                <div class="input-group">
+                    <label for="email" class="label">Email</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            class="input-field"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password" class="label">Password</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <circle cx="12" cy="16" r="1"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password" 
+                            class="input-field"
+                            required
+                        >
+                        <button type="button" class="toggle-password" data-target="password">
+                            <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="auth-link">
+                    <span>Don't have an account? </span>
+                    <a href="signup.html" class="link">Sign up</a>
+                </div>
+
+                <button type="submit" class="submit-btn">Sign in</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../scripts/signin.js"></script>
+</body>
+</html>

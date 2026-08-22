@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirm Payment - CINE RUSH</title>
+    <link rel="stylesheet" href="../styles/payment_confirmation.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <button class="back-btn" onclick="goBack()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <h1 class="header-title">Review Your Booking</h1>
+      </header>
+
+      <!-- Movie Details -->
+      <div class="movie-section">
+        <div class="movie-poster">
+          <img
+            class="movie-poster"
+            src=""
+            alt="Movie Poster"
+            width="100%"
+            height="100%"
+            style="border-radius: 16px 16px 0px 0px; object-fit: cover"
+          />
+        </div>
+        <div class="movie-info">
+          <h2 class="movie-title"></h2>
+          <p class="movie-language">Telugu 2D</p>
+          <p class="cinema-name">Sri Padma Veereswara Complex</p>
+          <p class="cancellation-info">⊗ Cancellation unavailable</p>
+        </div>
+      </div>
+
+      <!-- Booking Details -->
+      <div class="booking-details">
+        <div class="showtime-info">
+          <span class="date-time"></span>
+          <span class="time"></span>
+        </div>
+
+        <div class="ticket-info">
+          <div class="ticket-row">
+            <span></span>
+            <span class="price"></span>
+          </div>
+          <div class="seat-info"></div>
+        </div>
+      </div>
+
+      <!-- Payment Summary -->
+      <div class="payment-summary">
+        <h3 class="section-title">Payment Summary</h3>
+        <div class="summary-row">
+          <span>Order amount</span>
+          <span id="order-amount-summary"></span>
+        </div>
+        <div class="summary-row">
+          <span>Booking charge (inc. of GST)</span>
+          <span id="booking-charge-summary"></span>
+        </div>
+        <div class="summary-row total-row">
+          <span>To be paid</span>
+          <span id="total-amount-summary"></span>
+        </div>
+      </div>
+
+      <!-- Payment Method Bar -->
+      <div class="payment-method-bar">
+        <div class="payment-info">
+          <span class="pay-using">Pay Using</span>
+          <span class="payment-method-name"></span>
+        </div>
+        <div class="payment-amount">
+          <span class="amount"></span>
+          <span class="total-label">Total</span>
+        </div>
+        <button class="pay-now-btn" onclick="processPayment()">
+          Pay Now >
+        </button>
+      </div>
+    </div>
+
+    <script src="../scripts/payment_confirmation.js"></script>
+  </body>
+</html>

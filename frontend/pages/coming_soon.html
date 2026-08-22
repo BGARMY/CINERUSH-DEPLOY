@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - CINE RUSH</title>
+    <link rel="stylesheet" href="../styles/coming_soon.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <button class="back-btn" onclick="goBack()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <h1 class="page-title">Coming Soon</h1>
+        </header>
+
+        <!-- Movies Grid -->
+        <div class="movies-grid">
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/toxic-a-fairy-tale-for-grown-ups-et00378770-1742796590.jpg" alt="Toxic: A Fairy Tale for Grown-ups" width="100%" height="100%" class="sc-echj48-5 jNMNoU" style="border-radius: 16px 16px 0px 0px; object-fit: cover;">
+                </div>
+                <h3 class="movie-title">Toxic</h3>
+                <button class="watch-list-btn" onclick="addToWatchList('Toxic')">Watch List</button>
+            </div>
+
+            <div class="movie-card" data-movie="OG">
+                <div class="movie-poster" aria-label="Poster for Kingdom">
+                    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/they-call-him-og-et00369074-1694079660.jpg" alt="They Call Him OG" width="100%" height="100%" class="sc-echj48-5 jNMNoU" style="border-radius: 16px 16px 0px 0px; object-fit: cover;">
+                </div>
+                <h3 class="movie-title">OG</h3>
+                <button class="watch-list-btn" onclick="addToWatchList('OG')">Watch List</button>
+            </div>
+
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-raja-saab-et00383697-1750072273.jpg" alt="The Raja Saab" width="100%" height="100%" class="sc-echj48-5 jNMNoU" style="border-radius: 16px 16px 0px 0px; object-fit: cover;">
+                </div>
+                <h3 class="movie-title">Rajasaab</h3>
+                <button class="watch-list-btn" onclick="addToWatchList('Rajasaab')">Watch List</button>
+            </div>
+
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-paradise-et00436621-1741094191.jpg" alt="The Paradise" width="100%" height="100%" class="sc-echj48-5 jNMNoU" style="border-radius: 16px 16px 0px 0px; object-fit: cover;">
+                </div>
+                <h3 class="movie-title">Paradise</h3>
+                <button class="watch-list-btn" onclick="addToWatchList('Paradise')">Watch List</button>
+            </div>
+
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/jana-nayagan-et00430817-1750659894.jpg" alt="Jana Nayagan" width="100%" height="100%" class="sc-echj48-5 jNMNoU" style="border-radius: 16px 16px 0px 0px; object-fit: cover;">
+                </div>
+                <h3 class="movie-title">Jana Nayagan</h3>
+                <button class="watch-list-btn" onclick="addToWatchList('Jana Nayagan')">Watch List</button>
+            </div>
+
+            <div class="movie-card">
+                <div class="movie-poster">
+                    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/avatar-fire-and-ash-et00407893-1753776293.jpg" alt="Avatar: Fire and Ash" width="100%" height="100%" class="sc-echj48-5 jNMNoU" style="border-radius: 16px 16px 0px 0px; object-fit: cover;">
+                </div>
+                <h3 class="movie-title">Avatar 3</h3>
+                <button class="watch-list-btn" onclick="addToWatchList('Avatar 3')">Watch List</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/coming_soon.js"></script>
+</body>
+</html>
