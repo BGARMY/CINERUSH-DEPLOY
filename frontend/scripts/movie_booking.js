@@ -358,8 +358,18 @@ function renderShowtimesForDate(dateKey) {
   }
 
   // Optionally limit to a maximum number of showtimes per day for UI clarity
-  const MAX_SHOWS_PER_DAY = 4
-  const visible = filtered.slice(0, MAX_SHOWS_PER_DAY)
+  const upcoming = filtered.filter((show) => {
+  const startDate = parseShowDateTime(show)
+  return startDate && startDate.getTime() > Date.now()
+})
+
+if (upcoming.length === 0) {
+  showtimeGrid.innerHTML = '<p class="no-showtimes">No upcoming shows for this date.</p>'
+  return
+}
+
+const MAX_SHOWS_PER_DAY = 4
+const visible = upcoming.slice(0, MAX_SHOWS_PER_DAY)
 
   visible.forEach((show, index) => {
     const button = document.createElement("button")
@@ -403,8 +413,8 @@ function renderShowtimesForDate(dateKey) {
     showtimeGrid.appendChild(button)
   })
 
-  if (filtered.length > MAX_SHOWS_PER_DAY) {
-    const moreCount = filtered.length - MAX_SHOWS_PER_DAY
+  if (upcoming.length > MAX_SHOWS_PER_DAY) {
+  const moreCount = upcoming.length - MAX_SHOWS_PER_DAY
     const moreEl = document.createElement("div")
     moreEl.className = "showtime-more"
     moreEl.textContent = `+${moreCount} more`
@@ -712,53 +722,28 @@ function stopAutoRotateDates() {
  */
 function parseShowDateTime(show) {
   if (!show) return null
-  // Prefer server-provided unix timestamp or ISO datetime when available
-  if (show.show_start_unix) {
-    const n = Number(show.show_start_unix)
-    if (!isNaN(n)) return new Date(n * 1000)
-  }
-  if (show.show_datetime_iso) {
-    const dIso = new Date(show.show_datetime_iso)
-    if (!isNaN(dIso)) return dIso
-  }
 
-  const datePart = show.show_date || show.date || null
-  const timePart = show.show_time || show.time || ""
-  if (!datePart) return null
+  const dateText = String(show.show_date || "").slice(0, 10)
+  const timeText = String(show.show_time || "").trim()
 
-  // Normalize time like '10:30 AM' or '22:15:00' to 'HH:MM:SS' 24h
-  let hours = 0,
-    minutes = 0,
-    seconds = 0
-  const tm = String(timePart).trim()
-  if (/^\d{1,2}:\d{2}:\d{2}$/.test(tm)) {
-    const [h, m, s] = tm.split(":").map((x) => Number.parseInt(x, 10))
-    hours = h
-    minutes = m
-    seconds = s
-  } else if (/^\d{1,2}:\d{2}$/.test(tm)) {
-    const [h, m] = tm.split(":").map((x) => Number.parseInt(x, 10))
-    hours = h
-    minutes = m
-    seconds = 0
-  } else if (/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.test(tm)) {
-    const m = tm.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i)
-    if (m) {
-      let h = Number.parseInt(m[1], 10)
-      const mm = Number.parseInt(m[2], 10)
-      const ampm = m[3].toUpperCase()
-      if (ampm === "PM" && h !== 12) h += 12
-      if (ampm === "AM" && h === 12) h = 0
-      hours = h
-      minutes = mm
-      seconds = 0
-    }
-  }
+  const dateMatch = dateText.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+  const timeMatch = timeText.match(/^(\d{1,2}):(\d{2})(?::(\d{2}))?/)
 
-  const d = new Date(datePart)
-  if (isNaN(d)) return null
-  d.setHours(hours, minutes, seconds, 0)
-  return d
+  if (!dateMatch || !timeMatch) return null
+
+  const [, year, month, day] = dateMatch
+  const [, hour, minute, second = "0"] = timeMatch
+
+  const date = new Date(
+    Number(year),
+    Number(month) - 1,
+    Number(day),
+    Number(hour),
+    Number(minute),
+    Number(second)
+  )
+
+  return Number.isNaN(date.getTime()) ? null : date
 }
 
 /**

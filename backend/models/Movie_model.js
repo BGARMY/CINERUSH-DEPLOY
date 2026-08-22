@@ -26,22 +26,28 @@ exports.getMovieById = async (id) => {
 
 // Get movie booking data by title
 exports.getMovieBookingData = async (title) => {
-  // Return only upcoming showtimes (today or future). Also include an ISO datetime and unix timestamp
   const [rows] = await db.query(
-    `SELECT m.title, m.duration AS runtime, m.poster_url,
+    `SELECT m.title,
+            m.duration AS runtime,
+            m.poster_url,
             s.id AS showtime_id,
             s.cinema_name,
-            s.show_time,
-            s.show_date,
-            s.available_seats,
-            DATE_FORMAT(CONCAT(s.show_date, ' ', s.show_time), '%Y-%m-%dT%H:%i:%s') AS show_datetime_iso,
-            UNIX_TIMESTAMP(CONCAT(s.show_date, ' ', s.show_time)) AS show_start_unix
+            TIME_FORMAT(s.show_time, '%H:%i:%s') AS show_time,
+            DATE_FORMAT(s.show_date, '%Y-%m-%d') AS show_date,
+            s.available_seats
      FROM movies m
-     LEFT JOIN showtimes s ON m.id = s.movie_id
+     JOIN showtimes s ON m.id = s.movie_id
      WHERE LOWER(m.title) = LOWER(?)
-       AND (s.show_date > CURDATE() OR (s.show_date = CURDATE() AND s.show_time >= CURTIME()))
+       AND (
+         s.show_date > DATE(CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+05:30'))
+         OR (
+           s.show_date = DATE(CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+05:30'))
+           AND s.show_time >= TIME(CONVERT_TZ(UTC_TIMESTAMP(), '+00:00', '+05:30'))
+         )
+       )
      ORDER BY s.show_date, s.show_time`,
     [title]
   );
+
   return rows;
 };
