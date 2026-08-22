@@ -128,70 +128,70 @@ async function processPayment() {
   const bookingData = getBookingData();
 
   try {
+    if (
+      !bookingData.userId ||
+      !bookingData.showtimeId ||
+      !Array.isArray(bookingData.seats) ||
+      bookingData.seats.length === 0
+    ) {
+      throw new Error("Missing user, showtime, or seats");
+    }
+
     // Step 1: Create booking
-    const createRes = await fetch("http://localhost:5000/api/bookings/create", {
+    const createRes = await fetch("/api/bookings/create", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         userId: bookingData.userId,
         showtimeId: bookingData.showtimeId,
         seats: bookingData.seats,
-        movie: bookingData.movie,
-        cinema: bookingData.cinema,
-        // ✅ Send clean ISO date/time for MySQL
-        date: new Date(bookingData.date).toISOString().slice(0, 10), // YYYY-MM-DD
-        time: bookingData.time, // keep HH:mm
-        paymentMethod: bookingData.paymentMethod,
       }),
     });
 
     const createData = await createRes.json();
 
-    if (!createData.success) {
-      alert("❌ Booking failed: " + (createData.message || "Unknown error"));
-      hideProcessingOverlay();
-      return;
+    if (!createRes.ok || !createData.success) {
+      throw new Error(createData.message || "Booking creation failed");
     }
 
-    // Save bookingIds from backend response
-    if (Array.isArray(createData.bookingIds)) {
-      bookingData.bookingIds = createData.bookingIds; // store full array
-      bookingData.bookingId = createData.bookingIds[0]; // first one for redirect
-    }
+    bookingData.bookingIds = createData.bookingIds;
+    bookingData.bookingId = createData.bookingIds[0];
     setBookingData(bookingData);
 
     // Step 2: Confirm payment
-    const confirmRes = await fetch(
-      "http://localhost:5000/api/bookings/confirm",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          bookingIds: bookingData.bookingIds, // ✅ send the array directly
-          paymentStatus: "confirmed",
-          amount: bookingData?.pricing?.total || 0,
-          transactionId: bookingData.transactionId || "TXN-" + Date.now(), // ✅ fallback transactionId
-        }),
-      }
-    );
+    const confirmRes = await fetch("/api/bookings/confirm", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        bookingIds: bookingData.bookingIds,
+        paymentStatus: "confirmed",
+        amount: bookingData.pricing?.total || 0,
+        transactionId:
+          bookingData.transactionId || `TXN-${Date.now()}`,
+      }),
+    });
 
     const confirmData = await confirmRes.json();
 
-    if (confirmData.success) {
-      alert("✅ Payment processed successfully!");
-      bookingData.status = "confirmed";
-      setBookingData(bookingData);
-      hideProcessingOverlay();
-
-      // ✅ Redirect to success page with bookingId
-      window.location.href = `booking_successful.html?id=${bookingData.bookingId}`;
-    } else {
-      alert("❌ Payment failed: " + (confirmData.message || "Unknown error"));
-      hideProcessingOverlay();
+    if (!confirmRes.ok || !confirmData.success) {
+      throw new Error(confirmData.message || "Payment confirmation failed");
     }
-  } catch (err) {
-    console.error("Payment error:", err);
-    alert("Server error while processing booking/payment.");
+
+    bookingData.status = "confirmed";
+    setBookingData(bookingData);
+
+    alert("Payment processed successfully!");
+
+    window.location.href =
+      `booking_successful.html?id=${bookingData.bookingId}`;
+  } catch (error) {
+    console.error("Payment error:", error);
+    alert(error.message || "Server error while processing booking/payment.");
+  } finally {
     hideProcessingOverlay();
   }
 }
